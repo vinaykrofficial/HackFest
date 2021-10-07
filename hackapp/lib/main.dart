@@ -18,6 +18,17 @@ class Home extends StatefulWidget {
   State<StatefulWidget> createState() => HomeState();
 }
 
+final basicDemoRoutes =
+    Map.fromEntries(basicDemos.map((d) => MapEntry(d.route, d.builder)));
+
+final miscDemoRoutes =
+    Map.fromEntries(miscDemos.map((d) => MapEntry(d.route, d.builder)));
+
+final allRoutes = <String, WidgetBuilder>{
+  ...basicDemoRoutes,
+  ...miscDemoRoutes,
+};
+
 class HomeState extends State<Home> with SingleTickerProviderStateMixin {
   AnimationController controller;
   Animation<Offset> offset;
@@ -27,8 +38,8 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
 
-    controller =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 1000));
+    controller = AnimationController(
+        vsync: this, duration: Duration(milliseconds: 1000));
 
     offset = Tween<Offset>(begin: Offset.zero, end: Offset(0.5, 0.0))
         .animate(controller);
@@ -53,9 +64,7 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin {
               }
 
               _visible = !_visible;
-              setState(() {
-                
-              });
+              setState(() {});
             },
           ),
           Column(
@@ -63,7 +72,7 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin {
               AnimatedOpacity(
                 duration: const Duration(milliseconds: 250),
                 opacity: _visible ? 1.0 : 0.0,
-                            child: SlideTransition(
+                child: SlideTransition(
                   position: offset,
                   child: Padding(
                     padding: EdgeInsets.all(50.0),
@@ -71,10 +80,14 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       height: 400,
                       width: 200,
                       decoration: BoxDecoration(
-                        color: Colors.redAccent,
-                        boxShadow: [BoxShadow(color: Colors.red, spreadRadius: 1, blurRadius: 10)],
-                        borderRadius: BorderRadius.all(Radius.circular(20))
-                      ),
+                          color: Colors.redAccent,
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.red,
+                                spreadRadius: 1,
+                                blurRadius: 10)
+                          ],
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
                     ),
                   ),
                 ),
