@@ -1,4 +1,23 @@
 import 'package:flutter/material.dart';
+import 'src/basics/01_animated_container.dart';
+import 'src/basics/02_page_route_builder.dart';
+import 'src/basics/03_animation_controller.dart';
+import 'src/basics/04_tweens.dart';
+import 'src/basics/05_animated_builder.dart';
+import 'src/basics/06_custom_tween.dart';
+import 'src/basics/07_tween_sequence.dart';
+import 'src/basics/08_fade_transition.dart';
+import 'src/misc/animated_list.dart';
+import 'src/misc/animated_positioned.dart';
+import 'src/misc/animated_switcher.dart';
+import 'src/misc/card_swipe.dart';
+import 'src/misc/carousel.dart';
+import 'src/misc/curved_animation.dart';
+import 'src/misc/expand_card.dart';
+import 'src/misc/focus_image.dart';
+import 'src/misc/hero_animation.dart';
+import 'src/misc/physics_card_drag.dart';
+import 'src/misc/repeating_animation.dart';
 
 void main() {
   runApp(MyApp());
